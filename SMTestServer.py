@@ -1,7 +1,7 @@
 import socket
-#ServerIP = input("Please enter desired host IP address")
+ServerIP = input("Please enter desired host IP address")
 #ServerPort = int(input("Please enter desired host port"))
-ServerIP = "localhost"
+#ServerIP = "localhost"
 ServerPort = 3000
 
 suggestPosts = ["post 1", "post 2", "post 3"]

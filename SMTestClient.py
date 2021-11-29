@@ -1,7 +1,7 @@
 import socket
 
-#desiredIP = input("Please enter node IP")
-desiredIP = "localhost"
+desiredIP = input("Please enter node IP")
+#desiredIP = "localhost"
 desiredPort = 3000
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as mySocket:
     mySocket.connect((desiredIP, desiredPort))
