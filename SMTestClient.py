@@ -8,7 +8,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as mySocket:
     counter = 0
     while (True):
         counter = 0
-        userChoice = input("Go to next post (n), previous post(p), or save(s), or TESTCASE(t)")
+        userChoice = input("Go to next post (n), previous post(p), or save(s), create new post (c), or TESTCASE(t)")
         if (userChoice == "n"):
             counter += 1
             mySocket.sendall((counter).to_bytes(1,'little'))
@@ -20,7 +20,10 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as mySocket:
             pass
         elif (userChoice == "t"):
             mySocket.sendall(("a34").encode('utf-8'))
+        elif (userChoice == "c"):
+            userPost = input("What would you like to post? ")
+            mySocket.sendall(("c" + userPost).encode('utf-8'))
         else:
             mySocket.sendall(userChoice.encode('utf-8'))
-        data = mySocket.recv(1024)
+        data = mySocket.recv(1024)#need to add a timeout for this
         print("Received: " + data.decode("utf-8"))
